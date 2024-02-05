@@ -23,12 +23,7 @@ Create a decentralized NFT Marketplace:
   * which forces the usage of `ethers` version 6 instead of version 5 
 * using `@openzeppelin/contracts` version 5 instead of 4
   * `ReentrancyGuard` under `utils` instead of `security`
- 
- 
- 
-* using `@openzeppelin/contracts` version 5 instead of 4
-  * which required the implementation of `_exists`
-* replaced
+* replaced (this and similar)
     ```javascript
     basicNft = await ethers.getContract("BasicNft")
     ```
@@ -40,12 +35,17 @@ Create a decentralized NFT Marketplace:
         basicNftDeployment.address
     )
     ```
+* replaced `ethers.utils.parseEther` with `ethers.parseEther`
+* replaced `.address` with `.target` on deployed contract instances
+* replaced `.revertedWith(<error_class_name>)` with `revertedWithCustomError(<deployed_contract>, <error_class_name>)`
+* replace `deployer.getBalance()` with `ethers.provider.getBalance(deployer.address)` 
+* replaced `.mul` and `.add` with `*` and `+`
+* replaced `effectiveGasPrice` with `gasPrice` in transaction receipt
+ 
+* using `@openzeppelin/contracts` version 5 instead of 4
+  * which required the implementation of `_exists`
 * added `Ownable` constructor call to `RandomIpfsNft`:
     ```javascript
     Ownable(msg.sender)
     ```
-* replaced `.address` with `.target` on deployed contract instances
 * replaced `transactionReceipt.events` with `transactionReceipt.logs`
-* replaced `ethers.utils.parseEther` with `ethers.parseEther`
-* replaced `.sub` with `-`
-* replaced `.revertedWith(<error_class_name>)` with `revertedWithCustomError(<deployed_contract>, <error_class_name>)`
