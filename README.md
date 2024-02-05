@@ -41,6 +41,7 @@ Create a decentralized NFT Marketplace:
 * replace `deployer.getBalance()` with `ethers.provider.getBalance(deployer.address)` 
 * replaced `.mul` and `.add` with `*` and `+`
 * replaced `effectiveGasPrice` with `gasPrice` in transaction receipt
+* replaced `mintTxReceipt.events` with `mintTxReceipt.logs`
  
 * using `@openzeppelin/contracts` version 5 instead of 4
   * which required the implementation of `_exists`
@@ -48,4 +49,3 @@ Create a decentralized NFT Marketplace:
     ```javascript
     Ownable(msg.sender)
     ```
-* replaced `transactionReceipt.events` with `transactionReceipt.logs`
