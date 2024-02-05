@@ -42,10 +42,3 @@ Create a decentralized NFT Marketplace:
 * replaced `.mul` and `.add` with `*` and `+`
 * replaced `effectiveGasPrice` with `gasPrice` in transaction receipt
 * replaced `mintTxReceipt.events` with `mintTxReceipt.logs`
- 
-* using `@openzeppelin/contracts` version 5 instead of 4
-  * which required the implementation of `_exists`
-* added `Ownable` constructor call to `RandomIpfsNft`:
-    ```javascript
-    Ownable(msg.sender)
-    ```
